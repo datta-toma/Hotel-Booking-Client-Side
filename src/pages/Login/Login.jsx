@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import img1 from '../../assets/bag/login img.jpg';
 import "./login.css";
 
@@ -35,11 +36,11 @@ const Login = () => {
                         <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
                         </div>
-                        {/* <label>
+                        <label>
                             Please here? <Link to="/sign-up" className="label-text-alt link link-hover ">
                               <span className='text-blue-800 ml-2'>Sign Up</span>
                             </Link>
-                        </label> */}
+                        </label>
                     </form>
                     
                     </div>
