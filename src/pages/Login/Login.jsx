@@ -1,46 +1,104 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate  } from 'react-router-dom';
 import img1 from '../../assets/bag/login img.jpg';
+import useAuth from '../hook/useAuth';
+import { useForm } from "react-hook-form";
 import "./login.css";
+import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
+import { FaEyeSlash, FaEye  } from "react-icons/fa";
+import { useState } from 'react';
 
 const Login = () => {
 
+    const {signInUser, loading} = useAuth();
+    const [showPassword, setShowPassword] = useState(false);
+   
+  
+     const navigate = useNavigate();
+      const location = useLocation();
+      const from = location?.state || "/";
+  
+        const {
+          register,
+          handleSubmit,
+          formState: { errors },
+        } = useForm()
+        const onSubmit = (data) => {
+          const {email, password} = data;
+  
+            signInUser(email, password)
+            .then((result) =>{
+              if(result.user){
+                navigate(from);
+              }
+            })
+      
+            .catch(error =>{
+              console.log(error)
+              // Show error message using SweetAlert
+           Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email and password do not match!',
+          });
+            })
+    };
+  
+  // //   spinner
+  //   if (loading) {
+  //     return <Spinner />; 
+  //   }
 
 
     return (
         <div>
             <div className="hero min-h-screen log-contain bg-base-200 flex flex-col md:flex-row justify-center">
                 <div>
-                    <img className='w-4/5 rounded-xl ' src={img1}></img>
+                    <img className='w-full h-[500px] rounded-xl ' src={img1}></img>
                 </div>
-                <div className="hero-content">
+                <div className="hero-content ">
                      
-                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100  bg-gradient-to-r from-sky-200 to-blue-500 p-12">
+                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100  bg-gradient-to-r from-sky-200 to-blue-500 px-7">
 
-                    <form  className="card-body">
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                              <h1 className="text-3xl font-bold text-center">Login</h1>
                             <label className="label">
                                  <span className="label-text">Email</span>
                             </label>
-                               <input type="email" placeholder="email" className="input input-bordered" required />
+                               <input type="email" placeholder="email" className="input input-bordered" required 
+                               {...register("email", { required: true })}
+                                />
+                                {errors.email && <span>This field is required</span>}
                         </div>
                         <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input type="password" placeholder="password" className="input input-bordered" required/>
-                        <label className="label">
+                                    <label className="label">
+                                    <span className="label-text">Password</span>
+                                    </label>
+                                   <div className="relative">
+                                       <input type={showPassword ? "text" : "password"} placeholder="password" className="input input-bordered" required {...register("password", { required: true })}/>
+                                       <span className="absolute top-4 right-3" onClick={()=> setShowPassword(!showPassword)}>
+                                        {
+                                        showPassword ? <FaEye></FaEye> :  <FaEyeSlash></FaEyeSlash>
+                                        }</span>
+                                        {errors.password && <span>This field is required</span>}
+
+                                        <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
-                        </div>
-                        <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
+                                   </div>
+                
+
+                                </div>
+                        <div className="form-control mt-2">
+                        <button className="btn btn glass">Login</button>
                         </div>
                         <label>
                             Please here? <Link to="/sign-up" className="label-text-alt link link-hover ">
                               <span className='text-blue-800 ml-2'>Sign Up</span>
                             </Link>
                         </label>
+                        <SocialLogin></SocialLogin>
                     </form>
                     
                     </div>

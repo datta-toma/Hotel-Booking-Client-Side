@@ -1,8 +1,26 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
+import useAuth from '../../hook/useAuth';
+import { RiLogoutCircleRLine } from "react-icons/ri";
+import { toast } from 'react-toastify';
+import { Tooltip } from 'react-tooltip';
 import "./nav.css";
 
 const Navbar = () => {
+
+    const {logout, user} = useAuth()
+    console.log(user)
+
+    const handleLogout = () => {
+        logout()
+          .then(() => {
+            toast.success("Successfully logged out");
+          })
+          .catch((err) => {
+            toast.error(`Logout failed: ${err.message}`);
+          });
+      };
+
     const navItem = <>
      <li><NavLink to='/'>Home</NavLink></li>
      <li><NavLink>Room</NavLink></li>
@@ -23,7 +41,7 @@ const Navbar = () => {
                         </ul>
                         </div>
                         <img className= 'w-28 md:w-36 '  src={logo}></img>
-                        <a className="btn btn-ghost text-xl md:text-4xl font-extrabold italic">ENCORE-HOTEL</a>
+                        <a className="btn btn-ghost md:text-4xl font-extrabold italic">ENCORE-HOTEL</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -31,7 +49,35 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <a className="btn">Login</a>
+
+            {user ? (
+              <div className="dropdown dropdown-end">
+               <label tabIndex={0} className="btn btn-ghost btn-square" >
+               <Tooltip
+                  // Don't forget the `.`!
+                  anchorSelect=".btn-circle"
+                  content={user?.displayName  || user.email}
+                />
+              <div className="w-10 rounded-full">
+                <img src={user?.photoURL || 'https://i.postimg.cc/x1qf83JV/serious-man-formal-jacket-tie-standing-camera-1262-20387.avif'} alt="User Avatar" />
+              </div>
+            </label>
+                {/* <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip  tooltip-left" data-tip={user?.displayName  || user.email}> */}
+                
+              
+                    <button onClick={handleLogout} className="btn  btn-sm btn-glass">
+                      <RiLogoutCircleRLine></RiLogoutCircleRLine> Logout 
+                    </button>
+                  
+                
+              </div>
+            ) : (
+              <>
+              <Link to="/login">
+                <button className="btn btn-sm md:text-xl btn-ghost">Login</button>
+              </Link>
+            </>
+            )}
                     </div>
              </div>
         </div>
