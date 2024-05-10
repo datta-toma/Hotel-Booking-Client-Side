@@ -14,6 +14,9 @@ const Banner = () => {
                     <div className='text-white space-y-4 w-1/3'>
                     <h2 className='text-6xl font-bold text-center'>Encore Hotel</h2>
                     <p className='text-center'>Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
+                    <div className='text-center'>
+                    <button className="btn glass">Book Now</button>
+                    </div>
                     </div>
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -27,6 +30,9 @@ const Banner = () => {
                     <div className='text-white space-y-4 w-1/3'>
                     <h2 className='text-6xl font-bold text-center'>Encore Hotel</h2>
                     <p className='text-center'>Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
+                    <div className='text-center'>
+                    <button className="btn glass">Book Now</button>
+                    </div>
                     </div>
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -40,6 +46,9 @@ const Banner = () => {
                     <div className='text-white space-y-4 w-1/3'>
                     <h2 className='text-6xl font-bold text-center'>Encore Hotel</h2>
                     <p className='text-center'>Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
+                    <div className='text-center'>
+                    <button className="btn glass">Book Now</button>
+                    </div>
                     </div>
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -53,6 +62,9 @@ const Banner = () => {
                     <div className='text-white space-y-4 w-1/3'>
                     <h2 className='text-6xl font-bold text-center'>Encore Hotel</h2>
                     <p className='text-center'>Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
+                    <div className='text-center'>
+                    <button className="btn glass">Book Now</button>
+                    </div>
                     </div>
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

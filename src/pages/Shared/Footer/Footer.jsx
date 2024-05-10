@@ -13,10 +13,10 @@ const Footer = () => {
                     +1 (702) 770-7000</p>
                     <p>Connect with us.</p>
                     <div className='flex gap-2'>
-                        <a href='#'><LiaFacebookF className='text-2xl'></LiaFacebookF></a>
-                        <a><FaApple className='text-2xl'></FaApple></a>
-                        <a><FaInstagram className='text-2xl'></FaInstagram></a>
-                        <a><FaXTwitter className='text-2xl'></FaXTwitter></a>
+                        <a href='https://www.facebook.com/'><LiaFacebookF className='text-2xl'></LiaFacebookF></a>
+                        <a href='https://www.apple.com/'><FaApple className='text-2xl'></FaApple></a>
+                        <a href='https://www.instagram.com/'><FaInstagram className='text-2xl'></FaInstagram></a>
+                        <a href='https://twitter.com/'><FaXTwitter className='text-2xl'></FaXTwitter></a>
                     </div>
                 </aside> 
                 <nav>
