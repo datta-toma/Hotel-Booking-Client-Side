@@ -7,7 +7,8 @@ import 'leaflet/dist/leaflet.css';
 
 const Map = () => {
     return (
-        <div>
+        <div className='mt-10'>
+            <h2 className="text-4xl mb-5 text-center font-extrabold">Map</h2>
             <MapContainer
             center={[51.505, -0.09]} // Set the initial map center [latitude, longitude]
             zoom={13} // Set the initial map zoom level
