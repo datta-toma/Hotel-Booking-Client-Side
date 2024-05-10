@@ -23,7 +23,7 @@ const Navbar = () => {
 
     const navItem = <>
      <li><NavLink to='/'>Home</NavLink></li>
-     <li><NavLink>Room</NavLink></li>
+     <li><NavLink to='/room'>Room</NavLink></li>
      <li><NavLink>My Booking</NavLink></li>
      <li><NavLink>About Us</NavLink></li>
      <li><NavLink>Contact Us</NavLink></li>

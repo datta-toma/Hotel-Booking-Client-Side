@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import SingUp from "../pages/Login/SingUp";
+import AllRoomCard from "../pages/AllRoomCard/AllRoomCard";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
         {
           path:'/sign-up',
           element:<SingUp></SingUp>
+        },
+        {
+          path:'/room',
+          element:<AllRoomCard></AllRoomCard>
         },
       ]
     },
