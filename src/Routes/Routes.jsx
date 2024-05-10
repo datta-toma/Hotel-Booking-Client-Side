@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import SingUp from "../pages/Login/SingUp";
 import AllRoomCard from "../pages/AllRoomCard/AllRoomCard";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         {
           path:'/room',
           element:<AllRoomCard></AllRoomCard>
+        },
+        {
+          path:'/contact',
+          element:<Contact></Contact>
         },
       ]
     },
