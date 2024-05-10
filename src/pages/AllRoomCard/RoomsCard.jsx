@@ -14,8 +14,8 @@ const RoomsCard = ({roomCard}) => {
                     <p><span className="font-medium text-xl">Room Size: </span> {room_size}</p>
                     <p><span className="font-medium text-xl">Availability: </span> { availability}</p>
                     <p><span className="font-medium text-xl">Special Offers: </span> { special_offers }</p>
-                    <div className="card-actions ">
-                    <button className="btn btn-wide ">Book Now</button>
+                    <div className="card-actions justify-center ">
+                    <button className="btn btn-wide text-xl">Book Now</button>
                     </div>
                 </div>
             </div> 

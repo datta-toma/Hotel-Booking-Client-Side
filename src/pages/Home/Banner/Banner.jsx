@@ -11,8 +11,8 @@ const Banner = () => {
                     <img src={img1} className="w-full " />
 
                     <div className="absolute h-full  flex justify-center items-center  left-0  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-                    <div className='text-white space-y-4 w-1/3'>
-                    <h2 className='text-6xl font-bold text-center'>Encore Hotel</h2>
+                    <div className='text-white space-y-4 md:w-1/3'>
+                    <h2 className='md:text-6xl font-bold text-center'>Encore Hotel</h2>
                     <p className='text-center'>Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
                     <div className='text-center'>
                     <button className="btn glass">Book Now</button>
