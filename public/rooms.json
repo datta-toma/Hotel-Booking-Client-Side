@@ -1,6 +1,5 @@
 [
       {
-        "_id":"6501a1b1e25f8b3d12345001",
         "room_id": "101",
         "room_img": "https://i.postimg.cc/BQXx9W4z/hotel-room-beautiful-orange-sofa-included-43642330.webp",
         "descriptions": "A standard single room designed for budget-conscious travelers, offering a small but functional space. The room features a single bed, a compact work desk, and a modest bathroom with basic amenities. It's perfect for solo travelers who need a comfortable and affordable stay.",
@@ -10,7 +9,6 @@
         "special_offers": "10% off for weekday bookings"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345002",
         "room_id": "102",
         "room_img": "https://i.postimg.cc/L8FhyGXL/870587-hotel-room-092519.avif",
         "descriptions": "A deluxe double room with a queen-sized bed and a private balcony. This room offers a quiet retreat with a lovely view of the hotel gardens. It includes a minibar, a seating area, and a spacious bathroom with premium toiletries. Ideal for couples or business travelers seeking a touch of luxury.",
@@ -20,7 +18,6 @@
         "special_offers": "Free breakfast with 2+ nights stay"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345003",
         "room_id": "103",
         "room_img": "https://i.postimg.cc/SKDsxsGf/71ac3b193021731-Y3-Jvc-Cwy-Mj-Aw-LDE3-Mj-As-MCwx-Njg.jpg",
         "descriptions": "This room is perfect for families, featuring two double beds and a sofa bed in a separate living area. It includes a kitchenette with a small refrigerator, microwave, and coffee maker. The room offers ample space and privacy, ideal for families with children or small groups.",
@@ -30,7 +27,6 @@
         "special_offers": "15% discount for families with children"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345004",
         "room_id": "104",
         "room_img": "https://i.postimg.cc/PNsfR8tT/istockphoto-492189224-612x612.jpg",
         "descriptions": "A premium suite with a king-sized bed and a large living area. This suite features a private terrace with a panoramic view of the city. The room is furnished with a luxurious bathroom, including a spa bath, and a minibar stocked with complimentary drinks and snacks.",
@@ -40,7 +36,6 @@
         "special_offers": "Free dinner with 3+ nights stay"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345005",
         "room_id": "105",
         "room_img": "https://i.postimg.cc/rydS7X8P/360-F-475768676-wmw-EVWYWNlcqa-Moj4khb4-GF3-F0f4f7-TF.jpg",
         "descriptions": "An economy double room with twin beds, perfect for friends or budget travelers. The room includes a small work desk and a private bathroom with a shower. It's an excellent choice for those who need a comfortable yet affordable place to stay.",
@@ -50,7 +45,6 @@
         "special_offers": "10% discount for students"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345006",
         "room_id": "106",
         "room_img": "https://i.postimg.cc/DwhLWS19/istockphoto-627892060-612x612.jpg",
         "descriptions": "A junior suite designed for business travelers. It features a spacious work area with high-speed internet, a queen-sized bed, and a separate living space. The room also includes a minibar and a small kitchenette, providing everything needed for a comfortable stay.",
@@ -60,7 +54,6 @@
         "special_offers": "Early check-in and late check-out"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345007",
         "room_id": "107",
         "room_img": "https://i.postimg.cc/yNYRP2Qn/modern-bedroom-suite-hotel-with-tv-work-table-343960-52474.avif",
         "descriptions": "This standard twin room offers a comfortable stay with two single beds. It's designed for friends or colleagues traveling together. The room includes a compact work desk, a small seating area, and a private bathroom with basic toiletries.",
@@ -70,7 +63,6 @@
         "special_offers": "10% discount for weekday stays"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345008",
         "room_id": "108",
         "room_img": "https://i.postimg.cc/1X6VXSXR/pngtree-bedroom-guest-room-five-star-hotel-image-990205.jpg",
         "descriptions": "A deluxe single room with a city view, ideal for business travelers or solo tourists. It features a queen-sized bed, a work desk, and a large bathroom with premium toiletries. The room also includes a small balcony where guests can relax and enjoy the view.",
@@ -80,7 +72,6 @@
         "special_offers": "Free breakfast with 2+ nights stay"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345009",
         "room_id": "109",
         "room_img": "https://i.postimg.cc/LXgnQSzk/depositphotos-20784379-stock-photo-interior-of-modern-comfortable-hotel.webp",
         "descriptions": "This luxurious penthouse suite features a private rooftop terrace with stunning city views. The room is equipped with a king-sized bed, a large living area, and a fully equipped kitchen. Ideal for special occasions or high-end travelers, this suite offers a unique and memorable stay.",
@@ -90,7 +81,6 @@
         "special_offers": "Free airport transfer with 3+ nights stay"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345010",
         "room_id": "110",
         "room_img": "https://i.postimg.cc/Hs9jhB7N/CKFZAI72-ZBBFDH7-JGDQWFUNUBI.avif",
         "descriptions": "An accessible room designed for guests with special needs. It includes a wide doorway, grab bars in the bathroom, and an accessible shower. The room features a queen-sized bed and a small work desk, ensuring a comfortable stay for all guests.",
@@ -100,7 +90,6 @@
         "special_offers": "10% discount for senior citizens"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345011",
         "room_id": "111",
         "room_img": "https://i.postimg.cc/50z2q3Vn/xxl-153135481.jpg",
         "descriptions": "A triple room suitable for families or groups. It features three single beds, a small seating area, and a private bathroom with a shower. The room is designed for comfort and convenience, with ample space for guests to relax and unwind.",
@@ -110,7 +99,6 @@
         "special_offers": "Kids stay free"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345012",
         "room_id": "112",
         "room_img": "https://i.postimg.cc/8znp23kZ/photo-1631049552057-403cdb8f0658.avif",
         "descriptions": "A deluxe suite with a king-sized bed and a large living area. This suite features a grand piano, a fully equipped kitchen, and a spacious bathroom. Ideal for special occasions or high-end travelers, this suite offers luxury and comfort.",
@@ -120,7 +108,6 @@
         "special_offers": "Free room service"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345013",
         "room_id": "113",
         "room_img": "https://i.postimg.cc/L8hR3TkL/pngtree-single-bed-hotel-room-warm-color-and-simple-style-image-990165.jpg",
         "descriptions": "A cozy single room designed for budget travelers. It features a single bed, a small desk, and a compact bathroom with basic amenities. Although compact, this room provides everything needed for a comfortable stay at an affordable price.",
@@ -130,7 +117,6 @@
         "special_offers": null
       },
       {
-        "_id":"6501a1b1e25f8b3d12345014",
         "room_id": "114",
         "room_img": "https://i.postimg.cc/gJyP2BdF/0x0.webp",
         "descriptions": "This room features a king-sized bed, a work desk, and a small kitchenette. It's ideal for business travelers or couples looking for a comfortable stay with a bit of extra space. The room also includes a private balcony with city views.",
@@ -140,7 +126,6 @@
         "special_offers": "Free breakfast with 3+ nights stay"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345015",
         "room_id": "115",
         "room_img": "https://i.postimg.cc/zGLZgf5k/14b39d7cfbf5fac102d31de7f87716b9.jpg",
         "descriptions": "An economy double room with twin beds, designed for budget-conscious travelers. This room includes a small work desk, a compact seating area, and a private bathroom with basic amenities. It's a great choice for those who need a comfortable yet affordable place to stay.",
@@ -150,7 +135,6 @@
         "special_offers": null
       },
       {
-        "_id":"6501a1b1e25f8b3d12345016",
         "room_id": "116",
         "room_img": "https://i.postimg.cc/VNMxKHJr/03malibu-nobu-slide-FQ9-X-video-Sixteen-By-Nine-Jumbo1600.jpg",
         "descriptions": "A junior suite with a spacious living area and a king-sized bed. This room features a private balcony, a large bathroom, and a minibar. It's ideal for couples or business travelers seeking a luxurious and comfortable stay.",
@@ -160,7 +144,6 @@
         "special_offers": "Free bottle of wine for couples"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345017",
         "room_id": "117",
         "room_img": "https://i.postimg.cc/QdKwMnk4/jumeirah-etihad-towers-abu-dhabi.jpg",
         "descriptions": "An economy single room with a single bed and a compact work desk. It's designed for students or solo travelers seeking an affordable stay. The room includes a small private bathroom with a shower, providing everything needed for a comfortable experience.",
@@ -170,7 +153,6 @@
         "special_offers": null
       },
       {
-        "_id": "6501a1b1e25f8b3d12345018",
         "room_id": "118",
         "room_img": "https://i.postimg.cc/bvQ5xD51/Top-10-most-expensive-hotel-rooms-in-the-world.webp",
         "descriptions": "This standard double room features twin beds and a private bathroom with a shower. Ideal for friends or couples traveling together, this room offers a compact yet comfortable space with all the basic amenities. Great for budget-conscious travelers.",
@@ -180,7 +162,6 @@
         "special_offers": "10% discount for weekday bookings"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345019",
         "room_id": "119",
         "room_img": "https://i.postimg.cc/L5s0Fy8V/8c06c4295954ea04ac82cbcb3fb64bec.jpg",
         "descriptions": "A deluxe suite with a large living area, featuring a grand piano and a fully equipped kitchen. The room has a king-sized bed, a spacious bathroom, and a private terrace. Ideal for high-end travelers or those seeking luxury and comfort.",
@@ -190,7 +171,6 @@
         "special_offers": "Free room service and minibar"
       },
       {
-        "_id":"6501a1b1e25f8b3d12345020",
         "room_id": "120",
         "room_img": "https://i.postimg.cc/hjD2VCTq/w3840.jpg",
         "descriptions": "An economy double room with twin beds, designed for budget-conscious travelers. This room includes a small work desk, a compact seating area, and a private bathroom with basic amenities. It's a great choice for those who need a comfortable yet affordable place to stay.",

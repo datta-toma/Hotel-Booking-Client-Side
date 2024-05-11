@@ -7,7 +7,7 @@ const AllRoomCard = () => {
 
     
     useEffect(() =>{
-        fetch('rooms.json')
+        fetch('http://localhost:5000/Rooms')
         .then(res => res.json())
         .then(data => setRoomCards(data));
     }, []);
