@@ -7,6 +7,7 @@ import AllRoomCard from "../pages/AllRoomCard/AllRoomCard";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Contact from "../pages/Contact/Contact";
 import DetailsPage from "../pages/AllRoomCard/DetailsPage";
+import About from "../pages/Home/About/About";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
           path:'/details/:id',
           element:<DetailsPage></DetailsPage>,
           loader:({params}) => fetch(`http://localhost:5000/Rooms/${params.id}`)
+        },
+        {
+          path:'/about',
+          element:<About></About>
         },
       ]
     },
