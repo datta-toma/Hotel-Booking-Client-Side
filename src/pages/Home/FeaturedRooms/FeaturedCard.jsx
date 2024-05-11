@@ -12,7 +12,10 @@ const FeaturedCard = ({room}) => {
                 <p><span className="font-medium text-xl">Descriptions: </span>    {descriptions}<span className="font-medium">Read More</span></p>
                 
                     <div className="card-actions justify-center">
-                    <button className="btn btn-wide text-xl">Book Now</button>
+                        <Link to={`/details/${_id}`}>
+                        <button className="btn btn-wide text-xl">Book Now</button>
+                        </Link>
+                 
                  
                     </div>
                 </div>
