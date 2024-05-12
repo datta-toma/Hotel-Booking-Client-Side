@@ -1,4 +1,4 @@
-import logo from '../../../assets/logo.png';
+import pic from '../../../assets/bag/logo.png';
 import { LiaFacebookF } from "react-icons/lia";
 import { FaApple, FaInstagram} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -8,7 +8,7 @@ const Footer = () => {
         <div>
            <footer className="footer p-10 bg-gradient-to-r from-sky-100 to-stone-100 text-base-content">
                 <aside>
-                <img className= 'w-36 md:w-40 '  src={logo}></img>
+                <img className= 'w-36 md:w-40 '  src={pic}></img>
                     <p>Wynn and Encore Las Vegas3131 Las Vegas Blvd.<br></br> Las Vegas, NV 89109
                     +1 (702) 770-7000</p>
                     <p>Connect with us.</p>
