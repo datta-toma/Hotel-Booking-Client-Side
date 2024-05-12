@@ -1,20 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 
 const DetailsPage = () => {
     const { id } = useParams();
     const [roomData, setRoomData] = useState(null);
-    const [showModal, setShowModal] = useState(false);
-   
+ 
     useEffect(() => {
         fetchRoomData();
     },[]);
-
-    useEffect(() => {
-        if (showModal) {
-            document.getElementById('my_modal_1').showModal();
-        }
-    }, [showModal]);
 
     const fetchRoomData = async () => {
         try {
@@ -33,38 +26,29 @@ const DetailsPage = () => {
     const handleBooking = async () => {
         try {
             setRoomData(prevRoomData => ({ ...prevRoomData, availability: false }));
-            setShowModal(true);
-
-            const response = await fetch(`http://localhost:5000/Rooms/${id}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
+        
+            setTimeout(async () => {
+                const response = await fetch(`http://localhost:5000/Rooms/${id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (response.ok) {
+                    console.log('Room booked successfully!');
+                } else {
+                    const errorData = await response.json();
+                    console.error('Failed to book the room:', errorData.message);
+                    setRoomData(prevRoomData => ({ ...prevRoomData, availability: true }));
                 }
-            });
-            if (response.ok) {
-                console.log('Room booked successfully!');
-            } else {
-                const errorData = await response.json();
-                console.error('Failed to book the room:', errorData.message);
-                setRoomData(prevRoomData => ({ ...prevRoomData, availability: true }));
-            }
+            }, 1000); 
         } catch (error) {
             console.error('Error booking room:', error);
             setRoomData(prevRoomData => ({ ...prevRoomData, availability: true }));
+           
         }
     };
 
-    const handleConfirmBooking = async () => {
-        try {
-            setShowModal(false);
-        } catch (error) {
-            console.error('Error confirming booking:', error);
-        }
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
    
     return (
         <div>
@@ -80,7 +64,10 @@ const DetailsPage = () => {
                             <p className="py-1"><span className="text-xl font-medium">Availability: </span>{roomData.availability ? 'Available' : 'Unavailable'}</p>
                             <p className="py-1"><span className="text-xl font-medium">Special Offers</span>{roomData.special_offers}</p>
                             {roomData.availability ? (
-                                <button className="btn btn-primary mt-3" onClick={handleBooking}>Book Now</button>
+                                <Link to ={`/confirm/${id}`}>
+                                     <button className="btn btn-primary mt-3" onClick={handleBooking}>Book Now</button>
+                                </Link>
+                               
                             ) : (
                                 <p className="text-red-500">Unavailable</p>
                             )}     
@@ -89,25 +76,7 @@ const DetailsPage = () => {
                 )}
             </div>
 
-            <dialog id="my_modal_1" className="modal">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Room Summary</h3>
-                    {roomData && (
-                        <div>
-                            <p>Descriptions: {roomData.descriptions}</p>
-                            <p>Price Per Night: {roomData.price_per_night}</p>
-                            <p>Room Size: {roomData.room_size}</p>
-                            <p>Special Offers: {roomData.special_offers}</p>
-                        </div>
-                    )}
-                    <div className="modal-action">
-                        <form method="dialog">
-                            <button className="btn" onClick={handleConfirmBooking}>Confirm Booking</button>
-                            <button className="btn" onClick={handleCloseModal}>Close</button>
-                        </form>
-                    </div>
-                </div>
-            </dialog>
+            
         </div>
     );
 };

@@ -8,6 +8,9 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Contact from "../pages/Contact/Contact";
 import DetailsPage from "../pages/AllRoomCard/DetailsPage";
 import About from "../pages/Home/About/About";
+import PrivateRouter from "../layout/PrivateRouter";
+import MyBookingPage from "../pages/MyBookingPage/MyBookingPage";
+import ConfirmPage from "../pages/AllRoomCard/ConfirmPage";
 
 const router = createBrowserRouter([
     {
@@ -37,12 +40,20 @@ const router = createBrowserRouter([
         },
         {
           path:'/details/:id',
-          element:<DetailsPage></DetailsPage>,
+          element:<PrivateRouter><DetailsPage></DetailsPage></PrivateRouter>,
           loader:({params}) => fetch(`http://localhost:5000/Rooms/${params.id}`)
         },
         {
           path:'/about',
           element:<About></About>
+        },
+        {
+          path:'/booking',
+          element:<MyBookingPage></MyBookingPage>
+        },
+        {
+          path:'/confirm/:id',
+          element:<ConfirmPage></ConfirmPage>
         },
       ]
     },
