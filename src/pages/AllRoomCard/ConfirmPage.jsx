@@ -7,8 +7,10 @@ const ConfirmPage = ({ roomId, roomData }) => {
         email: '',
         name: '',
         date: '',
+        RoomID: roomData?.room_id ?? '',
         price: roomData?.price_per_night ?? '',
-        description: roomData?.descriptions ?? ''
+        description: roomData?.descriptions ?? '',
+        
     });
 
     const handleChange = (e) => {
@@ -28,6 +30,7 @@ const ConfirmPage = ({ roomId, roomData }) => {
                     email: formData.email,
                     name: formData.name,
                     date: formData.date,
+                    RoomID: formData.room_id,
                     price: formData.price,
                     description: formData.description
                 })
@@ -52,7 +55,7 @@ const ConfirmPage = ({ roomId, roomData }) => {
 
     return (
         <div>
-            <h2 className="text-5xl font-extrabold mt-10 text-center">Confirm Order</h2>
+            <h2 className="text-5xl font-extrabold mt-10 text-center">Confirm Booking Room</h2>
             <div className='mt-20 text-center'>
             <form onSubmit={handleSubmit}>
 
@@ -64,20 +67,27 @@ const ConfirmPage = ({ roomId, roomData }) => {
                         <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center " />
                     </div>
 
-                    <div className='space-y-7'>
-                        <label>Date:</label>
-                        <input type="date" name="date" placeholder="Date" value={formData.date} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
+                    <div className='space-y-4 mr-7'>
+                        <label>Room ID:</label>
+                        <input type="text" name="room_id" placeholder="Room ID" value={formData.room_id} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
 
-                        <label className='ml-7'>Price:</label>
-                        <input type="text" name="price" placeholder="Price" value={formData.price} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
+                        <label className='ml-9'>Date:</label>
+                        <input type="date" name="date" placeholder="Date" value={formData.date} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center"/> 
                     </div>
 
 
                     <div className='space-y-7'>
-                        <label>Description:</label>
+                    <label className='ml-7'>Price:</label>
+                        <input type="text" name="price" placeholder="Price" value={formData.price} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
+
+                        <label className='ml-6'>Description:</label>
                         <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
                     </div>
                     <div className='mt-7 mb-5 '>
+                    <p className="py-1">
+                        <span className="text-xl font-medium">Availability: </span>
+                        {formData && formData.availability ? 'Available' : 'Unavailable'}
+                    </p>
                         <button type="submit" className="btn btn-wide ">Confirm</button>
                     </div>
                     

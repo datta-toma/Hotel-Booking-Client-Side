@@ -4,6 +4,7 @@ import { Link, useParams} from 'react-router-dom';
 const DetailsPage = () => {
     const { id } = useParams();
     const [roomData, setRoomData] = useState(null);
+    const [isBooking, setIsBooking] = useState(false);
  
     useEffect(() => {
         fetchRoomData();
@@ -26,7 +27,7 @@ const DetailsPage = () => {
     const handleBooking = async () => {
         try {
             setRoomData(prevRoomData => ({ ...prevRoomData, availability: false }));
-        
+            setIsBooking(true);
             setTimeout(async () => {
                 const response = await fetch(`http://localhost:5000/Rooms/${id}`, {
                     method: 'POST',
@@ -41,10 +42,10 @@ const DetailsPage = () => {
                     console.error('Failed to book the room:', errorData.message);
                     setRoomData(prevRoomData => ({ ...prevRoomData, availability: true }));
                 }
-            }, 1000); 
+            }); 
         } catch (error) {
             console.error('Error booking room:', error);
-            setRoomData(prevRoomData => ({ ...prevRoomData, availability: true }));
+            setIsBooking(false);
            
         }
     };
@@ -58,19 +59,17 @@ const DetailsPage = () => {
                     <div className="hero-content flex-col lg:flex-row gap-32">
                         <img src={roomData.room_img} className="max-w-sm rounded-lg shadow-2xl" />
                         <div>
+                        <p><span className="text-xl font-medium">Room ID: </span>{roomData.room_id}</p>
                             <p className="py-3"><span className="text-xl font-medium">Descriptions: </span>{roomData.descriptions}</p>
                             <p className="py-1"><span className="text-xl font-medium">price_per_night: </span>{roomData.price_per_night}</p>
                             <p className="py-1"><span className="text-xl font-medium">Room Size: </span>{roomData.room_size}</p>
                             <p className="py-1"><span className="text-xl font-medium">Availability: </span>{roomData.availability ? 'Available' : 'Unavailable'}</p>
-                            <p className="py-1"><span className="text-xl font-medium">Special Offers</span>{roomData.special_offers}</p>
-                            {roomData.availability ? (
-                                <Link to ={`/confirm/${id}`}>
-                                     <button className="btn btn-primary mt-3" onClick={handleBooking}>Book Now</button>
+                            {!isBooking && roomData.availability && (
+                                <Link to={`/confirm/${id}`}>
+                                    <button className="btn btn-primary mt-3" onClick={handleBooking}>Book Now</button>
                                 </Link>
-                               
-                            ) : (
-                                <p className="text-red-500">Unavailable</p>
-                            )}     
+                            )}
+                                  
                         </div>
                     </div>
                 )}
