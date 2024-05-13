@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
-const RoomsCard = ({ roomCard }) => {
+const RoomsCard = ({ roomCard,  }) => {
     const { _id, room_img, descriptions, availability } = roomCard;
     const [totalReviews, setTotalReviews] = useState();
     const [reviewText, setReviewText] = useState('');
     const [username, setUsername] = useState(''); // New state for username
     const [rating, setRating] = useState(0); // New state for rating
     const [isSubmitting, setIsSubmitting] = useState(false);
+ 
 
     useEffect(() => {
         console.log("Component mounted or _id changed");
@@ -73,6 +74,10 @@ const RoomsCard = ({ roomCard }) => {
             setIsSubmitting(false);
         }
     };
+
+    
+
+   
     
     
     return (
@@ -99,12 +104,14 @@ const RoomsCard = ({ roomCard }) => {
                         </button>
                     </form>
                     <div className="card-actions justify-center">
+                        
                         {availability ? (
                             <span className="text-green-500">Available</span>
                         ) : (
                             <span className="text-red-500">Unavailable</span>
                         )}
                     </div>
+                   
                 </div>
             </div> 
         </div>

@@ -10,7 +10,7 @@ import DetailsPage from "../pages/AllRoomCard/DetailsPage";
 import About from "../pages/Home/About/About";
 import PrivateRouter from "../layout/PrivateRouter";
 import MyBookingPage from "../pages/MyBookingPage/MyBookingPage";
-import ConfirmPage from "../pages/AllRoomCard/ConfirmPage";
+
 
 const router = createBrowserRouter([
     {
@@ -51,10 +51,7 @@ const router = createBrowserRouter([
           path:'/booking',
           element:<MyBookingPage></MyBookingPage>
         },
-        {
-          path:'/confirm/:id',
-          element:<ConfirmPage></ConfirmPage>
-        },
+        
       ]
     },
   ]);
