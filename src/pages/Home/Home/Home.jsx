@@ -3,6 +3,7 @@ import FeaturedRooms from "../FeaturedRooms/FeaturedRooms";
 import Map from "../Map/Map";
 import NewsLetter from "../NewsLetter/NewsLetter";
 import { useState, useEffect } from "react";
+import ReviewPage from "../ReviewPahe/ReviewPage";
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
             <Banner></Banner>
             <FeaturedRooms roomCards={roomCards}></FeaturedRooms>
             <NewsLetter></NewsLetter>
+            <ReviewPage></ReviewPage>
             <Map></Map>
         </div>
     );
