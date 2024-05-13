@@ -10,10 +10,9 @@ const ReviewPage = () => {
 
     const fetchReviews = async () => {
         try {
-            const response = await fetch('http://localhost:5000/reviews'); // Adjust the endpoint accordingly
+            const response = await fetch('http://localhost:5000/reviews'); 
             if (response.ok) {
                 const data = await response.json();
-                // Sort reviews in descending order based on timestamp
                 const sortedReviews = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
                 setReviews(sortedReviews);
             } else {
@@ -27,10 +26,11 @@ const ReviewPage = () => {
     const renderReviews = () => {
         return reviews.map((review, index) => (
             <div key={index} >
-                <div className='flex flex-col md:flex-row justify-center md:gap-8 overflow-y-auto h-14 border-6  border-gray-300 shadow-lg rounded-xl mb-5 w-full p-4'>
-                    <h3 className="font-bold">UserName: {review.username}</h3>
+                <div className='flex  md:flex-row justify-center gap-3 md:gap-8 overflow-x-auto h-12 border-6  border-gray-300 shadow-lg rounded-xl mb-5  p-4'>
+                    <p className="font-bold">UserName: {review.username}</p>
                     <p className="font-bold">Comment: {review.text}</p>
                     <p className="font-bold">Rating: {review.rating}</p>
+                    <p className="font-bold">Timestamp: {new Date(review.timestamp).toLocaleString()}</p>
                 </div>  
             </div>
         ));

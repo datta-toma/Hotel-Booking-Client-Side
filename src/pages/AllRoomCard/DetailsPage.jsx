@@ -181,17 +181,12 @@ const DetailsPage = () => {
                         <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
                     </div>
                     <div className='mt-7 mb-5 '>
-                    {/* <p className="py-1">
-                        <span className="text-xl font-medium">Availability: </span>
-                        {formData && formData.availability ? 'Available' : 'Unavailable'}
-                    </p> */}
                         <button type="submit" className="btn btn-wide ">Confirm</button>
                     </div>
                     
                     </form>
             </div>
-                            {/* Add your modal content here */}
-                            <button className="btn" onClick={toggleModal}>Close</button>
+                         <button className="btn" onClick={toggleModal}>Close</button>
                         </div>
                     </dialog>
                 )}

@@ -2,22 +2,30 @@ import { useEffect, useState } from "react";
 import useAuth from "../hook/useAuth";
 import Swal from 'sweetalert2';
 import './bookingPage.css';
+import axios from "axios";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 const MyBookingPage = () => {
     const {user} = useAuth();
     const [bookings, setBookings] = useState([]);
     const [reviewText, setReviewText] = useState('');
     const [rating, setRating] = useState(0);
-    
+    const axiosSecure = useAxiosSecure();
+  
 
     useEffect(() => {
         if (user) {
-            const url = `http://localhost:5000/bookings?email=${user.email}`;
-            fetch(url)
-                .then(res => res.json())
-                .then(data => setBookings(data))
+            const url = `/bookings?email=${user.email}`;
+
+            axiosSecure.get(url)
+            .then(res =>{
+                setBookings(res.data);
+            })
+            // fetch(url)
+            //     .then(res => res.json())
+            //     .then(data => setBookings(data))
         } 
-    }, [user]); 
+    }, [user, axiosSecure]); 
 
     // cancel
     const handleCancelBooking = (id) => {

@@ -4,6 +4,7 @@ import Map from "../Map/Map";
 import NewsLetter from "../NewsLetter/NewsLetter";
 import { useState, useEffect } from "react";
 import ReviewPage from "../ReviewPahe/ReviewPage";
+import SpecialOffer from "../SpecialOffer/SpecialOffer";
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <FeaturedRooms roomCards={roomCards}></FeaturedRooms>
+            <SpecialOffer></SpecialOffer>
             <NewsLetter></NewsLetter>
             <ReviewPage></ReviewPage>
             <Map></Map>

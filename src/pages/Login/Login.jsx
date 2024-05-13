@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
 import { FaEyeSlash, FaEye  } from "react-icons/fa";
 import { useState } from 'react';
+import axios from 'axios';
 
 const Login = () => {
 
@@ -16,7 +17,8 @@ const Login = () => {
   
      const navigate = useNavigate();
       const location = useLocation();
-      const from = location?.state || "/";
+      console.log(location)
+      // const from = location?.state || "/";
   
         const {
           register,
@@ -28,13 +30,26 @@ const Login = () => {
   
             signInUser(email, password)
             .then((result) =>{
-              if(result.user){
-                navigate(from);
-              }
+              const loggedInUser = result.user;
+              console.log(loggedInUser)
+              const user ={email};
+              // if(result.user){
+              //   // navigate(location?.state ? location?.state : '/');
+              // }
+              // get access token
+              axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+              .then(res =>{
+                console.log(res.data)
+                if(res.data.success){
+                   navigate(location?.state ? location?.state : '/');
+                }
+              })
+
             })
       
             .catch(error =>{
               console.log(error)
+              // get access token
               // Show error message using SweetAlert
            Swal.fire({
             icon: 'error',

@@ -4,7 +4,7 @@ const NewsLetter = () => {
     return (
         <div>
             <div className="text-center space-y-3 mt-8">
-                <h2 className="text-5xl font-extrabold">NewsLetter SignUp</h2> 
+                <h2 className="md:text-5xl text-3xl font-extrabold">NewsLetter SignUp</h2> 
                 <p> To receive updates on our latest news, packages, exclusive offers and upcoming events, please complete the form below.<br></br> You may opt out from receiving promotions at any time by clicking the unsubscribe link in the newsletter.</p>
             </div>
 

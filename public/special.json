@@ -1,0 +1,33 @@
+[
+    {
+      "img": "https://i.postimg.cc/FRrQXTXW/download-1.jpg",
+      "discount": "30% off",
+      "price": "$150 per night"
+    },
+    {
+      "img": "https://i.postimg.cc/x8qDcqCL/cirq2-logo-570x332.jpg",
+      "discount": "25% off",
+      "price": "$200 per night"
+    },
+    {
+      "img": "https://i.postimg.cc/kX6PCVLm/luxury-hotel-1515771402.jpg",
+      "discount": "20% off",
+      "price": "$180 per night"
+    },
+    {
+      "img": "https://i.postimg.cc/ZqL1H6vr/depositphotos-271272176-stock-photo-cropped-view-receptionist-bringing-breakfast.webp",
+      "discount": "Free breakfast included",
+      "price": "$220 per night"
+    },
+    {
+      "img": "https://i.postimg.cc/yx25xP2z/alacarte-6-wide.webp",
+      "discount": "10% off",
+      "price": "$250 per night"
+    },
+    {
+      "img": "https://i.postimg.cc/FHyqF0Z2/image.jpg",
+      "discount": "15% off",
+      "price": "$190 per night"
+    }
+  ]
+  
