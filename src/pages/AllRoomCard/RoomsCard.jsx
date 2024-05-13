@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import useAuth from "../hook/useAuth";
 
 const RoomsCard = ({ roomCard,  }) => {
     const { _id, room_img, descriptions, availability } = roomCard;
-    const [totalReviews, setTotalReviews] = useState();
+    const [totalReviews, setTotalReviews] = useState(0);
     const [reviewText, setReviewText] = useState('');
     const [username, setUsername] = useState(''); // New state for username
     const [rating, setRating] = useState(0); // New state for rating
     const [isSubmitting, setIsSubmitting] = useState(false);
- 
+    const { user } = useAuth();
+   
 
     useEffect(() => {
         console.log("Component mounted or _id changed");
@@ -33,6 +35,13 @@ const RoomsCard = ({ roomCard,  }) => {
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+
+        if (!user) {
+            console.log("Only logged-in users can submit reviews.");
+            setIsSubmitting(false);
+            return;
+        }
+
     
         try {
             if (!username) {
@@ -76,10 +85,6 @@ const RoomsCard = ({ roomCard,  }) => {
     };
 
     
-
-   
-    
-    
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -90,6 +95,7 @@ const RoomsCard = ({ roomCard,  }) => {
                 </figure>
                 <div className="card-body ">
                     <p><span className="font-medium text-xl">Descriptions: </span>{descriptions}<span className="font-medium">Read More</span></p>
+
                     <p>Total Reviews: {totalReviews}</p>
 
                     <form onSubmit={handleReviewSubmit}>
