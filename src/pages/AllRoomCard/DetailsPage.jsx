@@ -21,7 +21,7 @@ const DetailsPage = () => {
     });
 
     const toggleModal = () => {
-        setShowModal(!showModal); // Toggle modal visibility
+        setShowModal(!showModal); 
     };
   
     useEffect(() => {
@@ -31,10 +31,8 @@ const DetailsPage = () => {
             if (response.ok) {
                 const data = await response.json();
                 setRoomData(data);
-                // Update formData with room ID when roomData changes
                 setFormData(prevFormData => ({
-                    ...prevFormData,
-                    RoomID: data.room_id
+                    ...prevFormData, RoomID: data.room_id
                 }));
             } else {
                 console.error('Failed to fetch room data');
@@ -86,14 +84,12 @@ const DetailsPage = () => {
             });
             if (response.ok) {
                 console.log('Booking confirmed and saved to database!');
-                // Update room availability status in frontend
-                setShowModal(true); // Close the modal after successful submission
+                setShowModal(true); 
                 Swal.fire({
                     icon: 'success',
                     title: 'Booking Confirmed!',
                     text: 'Your booking has been confirmed and saved to the database.'
                 });
-                // Redirect to the room page
                 history.push(`/room/${id}`);
             } else {
                 console.error('Failed to save booking to database');
