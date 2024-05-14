@@ -1,14 +1,21 @@
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 
 const Map = () => {
+
+    useEffect(() => {
+        Aos.init( );
+    }, []);
+
     return (
         <div className='mt-10'>
-            <h2 className="text-4xl mb-5 text-center font-extrabold">Map</h2>
+            <h2 className="text-5xl mb-5 text-center font-extrabold" data-aos="flip-down">Hotel Map Location</h2>
             <MapContainer
             center={[51.505, -0.09]} // Set the initial map center [latitude, longitude]
             zoom={13} // Set the initial map zoom level

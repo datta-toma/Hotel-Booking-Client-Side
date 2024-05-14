@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import useAuth from "../hook/useAuth";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { Helmet } from "react-helmet-async";
 
 const RoomsCard = ({ roomCard,  }) => {
     const { _id, room_img, descriptions, availability } = roomCard;
     const [totalReviews, setTotalReviews] = useState(0);
     const [reviewText, setReviewText] = useState('');
-    const [username, setUsername] = useState(''); // New state for username
-    const [rating, setRating] = useState(0); // New state for rating
+    const [username, setUsername] = useState(''); 
+    const [rating, setRating] = useState(0); 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { user } = useAuth();
    
+
+    useEffect(() => {
+        Aos.init( );
+    }, []);
 
     useEffect(() => {
         console.log("Component mounted or _id changed");
@@ -87,13 +94,16 @@ const RoomsCard = ({ roomCard,  }) => {
     
     return (
         <div>
+            <Helmet>
+                <title>Rooms List</title>
+            </Helmet>
             <div className="card w-96 bg-base-100 shadow-xl">
-                <figure className="px-10 pt-10">
+                <figure className="px-10 pt-10" data-aos="fade-down-right">
                     <Link to={`/details/${_id}`}>
                         <img src={room_img} alt="img" className="rounded-xl" />
                     </Link>
                 </figure>
-                <div className="card-body ">
+                <div className="card-body " data-aos="fade-down-left">
                     <p><span className="font-medium text-xl">Descriptions: </span>{descriptions}<span className="font-medium">Read More</span></p>
 
                     <p>Total Reviews: {totalReviews}</p>

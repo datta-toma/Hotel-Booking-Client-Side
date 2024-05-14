@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
-
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const ReviewPage = () => {
     const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        Aos.init( );
+    }, []);
 
     useEffect(() => {
         fetchReviews();
@@ -26,7 +31,7 @@ const ReviewPage = () => {
     const renderReviews = () => {
         return reviews.map((review, index) => (
             <div key={index} >
-                <div className='flex  md:flex-row justify-center gap-3 md:gap-8 overflow-x-auto h-12 border-6  border-gray-300 shadow-lg rounded-xl mb-5  p-4'>
+                <div className='flex  md:flex-row justify-center gap-3 md:gap-8 overflow-x-auto h-12 border-6  border-gray-300 shadow-lg rounded-xl mb-5  p-4' data-aos="flip-up">
                     <p className="font-bold">UserName: {review.username}</p>
                     <p className="font-bold">Comment: {review.text}</p>
                     <p className="font-bold">Rating: {review.rating}</p>
@@ -38,9 +43,9 @@ const ReviewPage = () => {
 
     return (
         <div >
-            <h2 className='text-5xl font-extrabold text-center mt-9'>Reviews</h2>
-            <div className=' flex justify-center mt-5'>
-            <div className="carousel carousel-vertical">
+            <h2 className='text-5xl font-extrabold text-center mt-9' data-aos="flip-down">Reviews</h2>
+            <div className=' flex justify-center mt-5'data-aos="flip-up">
+            <div className="carousel carousel-vertical" >
                 {renderReviews()}
             </div> 
             </div>

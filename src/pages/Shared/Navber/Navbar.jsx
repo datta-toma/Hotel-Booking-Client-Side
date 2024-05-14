@@ -1,19 +1,22 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/bag/logo.png';
 import useAuth from '../../hook/useAuth';
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { toast } from 'react-toastify';
 import "./nav.css";
 
+
 const Navbar = () => {
 
     const {logout, user} = useAuth()
+    const navigate = useNavigate();
     console.log(user)
 
     const handleLogout = () => {
         logout()
           .then(() => {
             toast.success("Successfully logged out");
+            navigate('/login')
           })
           .catch((err) => {
             toast.error(`Logout failed: ${err.message}`);

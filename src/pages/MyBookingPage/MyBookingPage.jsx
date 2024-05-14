@@ -3,29 +3,35 @@ import useAuth from "../hook/useAuth";
 import Swal from 'sweetalert2';
 import './bookingPage.css';
 import axios from "axios";
-import useAxiosSecure from "../hook/useAxiosSecure";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { Helmet } from "react-helmet-async";
 
 const MyBookingPage = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const [bookings, setBookings] = useState([]);
     const [reviewText, setReviewText] = useState('');
+    const [username, setUsername] = useState(''); 
     const [rating, setRating] = useState(0);
-    const axiosSecure = useAxiosSecure();
-  
+
+    useEffect(() => {
+        Aos.init();
+    }, []);
 
     useEffect(() => {
         if (user) {
-            const url = `/bookings?email=${user.email}`;
+            const url = `http://localhost:5000/bookings?email=${user.email}`;
 
-            axiosSecure.get(url)
-            .then(res =>{
-                setBookings(res.data);
-            })
-            // fetch(url)
-            //     .then(res => res.json())
-            //     .then(data => setBookings(data))
-        } 
-    }, [user, axiosSecure]); 
+            axios.get(url, { withCredentials: true })
+                .then(res => {
+                    setBookings(res.data);
+                })
+                .catch(error => {
+                    console.error('Error fetching bookings:', error);
+                    // Handle error
+                });
+        }
+    }, [user]);
 
     // cancel
     const handleCancelBooking = (id) => {
@@ -72,8 +78,7 @@ const MyBookingPage = () => {
         });
     };
 
-
-    // update date
+    // update Date
     const handleUpdateDate = (bookingId, newDate) => {
         fetch(`http://localhost:5000/bookings/${bookingId}`, {
             method: 'PATCH',
@@ -101,19 +106,25 @@ const MyBookingPage = () => {
        
     };
 
-
     // review
     const handleReviewSubmit = async (bookingId) => {
         try {
+            if (!username) {
+                throw new Error('Username is required');
+            }
+
             if (!reviewText || rating < 1 || rating > 5) {
                 throw new Error('Invalid review data');
             }
 
             const reviewData = {
                 bookingId: bookingId,
+                userName: user.name,
                 review: {
+                    username: username,
                     text: reviewText,
-                    rating: rating
+                    rating: rating,
+                    timestamp: new Date().toISOString()
                 }
             };
 
@@ -130,6 +141,7 @@ const MyBookingPage = () => {
             }
 
             setReviewText('');
+            setUsername('');
             setRating(0);
 
             Swal.fire({
@@ -147,25 +159,30 @@ const MyBookingPage = () => {
         }
     };
 
-    
+
     return (
-        <div className="booking-page">
-            <h2 className="text-5xl font-extrabold mt-10 text-center">Room Booking List</h2>
+        <div className="booking-page bg-gradient-to-r from-sky-200 to-slate-300 p-5" data-aos="zoom-in-right">
+            <Helmet>
+                <title>Booked</title>
+            </Helmet>
+            <h2 className="text-5xl font-extrabold mt-10 text-center" data-aos="flip-down">Room Booking List</h2>
             <div className="table-container mt-5">
-                <table className="table ">
-                    {/* head */}
+                <table className="table">
+                    {/* Table header */}
                     <thead>
-                    <tr>
-                        <th>Room ID</th>
-                        <th>Email</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Date</th>
-                        <th>update date</th>
-                       
-                    </tr>
+                        <tr>
+                            <th>Room ID</th>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                            <th>Update Date</th>
+                            <th>User Review</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
+                    {/* Table body */}
                     <tbody>
                         {bookings.map((booking, index) => (
                             <tr key={index}>
@@ -176,37 +193,28 @@ const MyBookingPage = () => {
                                 <td>{booking.price}</td>
                                 <td>{booking.date}</td>
                                 <td>
-                                    <td>
                                     <input
                                         type="date"
                                         value={booking.date}
                                         onChange={(e) => handleUpdateDate(booking._id, e.target.value)}
                                     />
-                                    </td>
                                 </td>
-
                                 <td>
-                                   
                                     <textarea value={reviewText} onChange={(e) => setReviewText(e.target.value)} placeholder="Write your review..." required />
+                                    <br></br>
+                                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Your Username" required />
+                                    <label className="font-bold ml-6">Rating:</label>
                                     <input type="number" value={rating} onChange={(e) => setRating(parseInt(e.target.value))} min={1} max={5} placeholder="Rating (1-5)" required />
-                                    <button className="btn btn glass" onClick={() => handleReviewSubmit(booking._id)}>Submit Review</button>
+                                    <button className="btn btn glass font-bold ml-6" onClick={() => handleReviewSubmit(booking._id)}>Post</button>
                                 </td>
-
-
-                                    
-                                
                                 <td>
-                                <button className="btn btn glass" onClick={() => handleCancelBooking(booking._id)}> Cancel </button>
-                                
-                              </td> 
+                                    <button className="btn btn glass" onClick={() => handleCancelBooking(booking._id)}>Cancel</button>
+                                </td>
                             </tr>
                         ))}
-                    </tbody> 
-                    
+                    </tbody>
                 </table>
-              
-                </div>
-
+            </div>
         </div>
     );
 };

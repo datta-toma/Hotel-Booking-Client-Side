@@ -7,7 +7,10 @@ import SocialLogin from "./SocialLogin";
 import img2 from '../../assets/bag/sinup img.jpg';
 import { FaEyeSlash, FaEye  } from "react-icons/fa";
 import "./login.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 
 const SingUp = () => {
@@ -84,13 +87,20 @@ const SingUp = () => {
           
       };
 
+      useEffect(() => {
+        Aos.init( );
+    }, []);
+
     return (
         <div>
+          <Helmet>
+            <title>SingUp</title>
+          </Helmet>
             <div className="hero min-h-screen log-contain bg-base-200 flex flex-col md:flex-row justify-center">
-            <div>
+            <div data-aos="fade-up-right">
                     <img className='w-full rounded-xl' src={img2}></img>
                 </div>
-                <div className="hero-content flex-col ">
+                <div className="hero-content flex-col " data-aos="fade-up-left">
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 bg-gradient-to-r from-sky-200 to-blue-500 px-12">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">

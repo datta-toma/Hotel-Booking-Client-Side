@@ -6,8 +6,11 @@ import "./login.css";
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
 import { FaEyeSlash, FaEye  } from "react-icons/fa";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Login = () => {
 
@@ -59,19 +62,21 @@ const Login = () => {
             })
     };
   
-  // //   spinner
-  //   if (loading) {
-  //     return <Spinner />; 
-  //   }
+    useEffect(() => {
+      Aos.init( );
+  }, []);
 
 
     return (
         <div>
+          <Helmet>
+            <title>Login</title>
+          </Helmet>
             <div className="hero min-h-screen log-contain bg-base-200 flex flex-col md:flex-row justify-center">
-                <div>
+                <div  data-aos="fade-up-right">
                     <img className='w-full h-[500px] rounded-xl ' src={img1}></img>
                 </div>
-                <div className="hero-content ">
+                <div className="hero-content" data-aos="fade-up-left">
                      
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100  bg-gradient-to-r from-sky-200 to-blue-500 px-7">
 

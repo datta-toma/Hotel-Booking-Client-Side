@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { Helmet } from 'react-helmet-async';
 
 const DetailsPage = () => {
     const { id } = useParams();
@@ -8,6 +11,11 @@ const DetailsPage = () => {
     const [reviews, setReviews] = useState([]);
     const [isBooking, setIsBooking] = useState(false);
     const [showModal, setShowModal] = useState(false);
+
+
+    useEffect(() => {
+        Aos.init( );
+    }, []);
 
     // modal
     const [formData, setFormData] = useState({
@@ -128,13 +136,16 @@ const DetailsPage = () => {
 
  
     return (
-        <div>
-            <h2 className="text-5xl font-extrabold mt-10 text-center">Details Page</h2>
+        <div className='bg-gradient-to-r from-sky-200 to-slate-300 p-5'>
+            <Helmet>
+                <title>Room Details</title>
+            </Helmet>
+            <h2 className="text-5xl font-extrabold mt-5 text-center" data-aos="flip-left">Details Page</h2>
             <div className="hero mt-12 ">
                 {roomData && (
-                    <div className="hero-content flex-col lg:flex-row gap-32">
+                    <div className="hero-content flex-col lg:flex-row gap-32" data-aos="fade-down-right">
                         <img src={roomData.room_img} className="max-w-sm rounded-lg shadow-2xl" />
-                        <div>
+                        <div data-aos="fade-down-left">
                             <p><span className="text-xl font-medium">Room ID: </span>{roomData.room_id}</p>
                             <p className="py-3"><span className="text-xl font-medium">Descriptions: </span>{roomData.descriptions}</p>
                             <p className="py-1"><span className="text-xl font-medium">Price Per Night: </span>{roomData.price_per_night}</p>
@@ -151,42 +162,40 @@ const DetailsPage = () => {
                 {/* Modal */}
                 {showModal && (
                     <dialog open className="modal" id="my_modal_8">
-                        <div className="modal-box">
-                            <h3 className="font-bold text-lg">Confirm Booking</h3>
+                        <div className="modal-box bg-gradient-to-r from-sky-200 to-blue-500">
+                            <h3 className="font-bold text-2xl text-center"  data-aos="flip-left">Confirm Booking</h3>
                             <div className='mt-20 text-center'>
             <form onSubmit={handleSubmit}>
 
-                    <div className='space-y-4'>
-                        <label>Email:</label>
-                        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
+                    <div className='space-y-4' >
+                        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" data-aos="fade-down-right"></input>
 
-                        <label className='ml-6'>Name:</label>
-                        <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center " />
+                        <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center " data-aos="fade-down-left"></input> 
                     </div>
 
-                    <div className='space-y-4 mr-7'>
-                        <label>Room ID:</label>
-                        <input type="text" name="RoomID" placeholder="Room ID" value={formData.RoomID} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
+                    <div className='space-y-4 mt-4'>
+                       
+                        <input type="text" name="RoomID" placeholder="Room ID" value={formData.RoomID} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" data-aos="fade-up-right"></input> 
 
-                        <label className='ml-9'>Date:</label>
-                        <input type="date" name="date" placeholder="Date" value={formData.date} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center"/> 
+                      
+                        <input type="date" name="date" placeholder="Date" value={formData.date} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" data-aos="fade-up-left"></input> 
                     </div>
 
 
-                    <div className='space-y-7'>
-                    <label className='ml-7'>Price:</label>
-                        <input type="text" name="price" placeholder="Price" value={formData.price} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
+                    <div className='space-y-7 mt-4'>
+                   
+                        <input type="text" name="price" placeholder="Price" value={formData.price} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center"  data-aos="fade-down-right"></input>
 
-                        <label className='ml-6'>Description:</label>
-                        <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" />
+                        
+                        <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required  className="input input-bordered w-full max-w-xs text-center" data-aos="fade-down-left"></input> 
                     </div>
                     <div className='mt-7 mb-5 '>
-                        <button type="submit" className="btn btn-wide ">Confirm</button>
+                        <button type="submit" className="btn btn-wide btn glass font-extrabold " data-aos="flip-up">Confirm</button>
                     </div>
                     
                     </form>
             </div>
-                         <button className="btn" onClick={toggleModal}>Close</button>
+                         <button className="btn btn glass font-bold" onClick={toggleModal}>Close</button>
                         </div>
                     </dialog>
                 )}
@@ -194,8 +203,8 @@ const DetailsPage = () => {
             </div>
     
             <div>
-                <h3 className="text-3xl font-bold mt-8 text-center">Reviews</h3>
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5'>
+                <h3 className="text-3xl font-bold mt-8 text-center" data-aos="fade-down-left">Reviews</h3>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5' data-aos="fade-up-right">
                      {reviews.length > 0 ? (
                         reviews.map((review, index) => (
                          <div key={index} className="border rounded p-4">
@@ -206,7 +215,7 @@ const DetailsPage = () => {
                                 </div>
                             ))
                         ) : (
-                            <p>No reviews available</p>
+                            <p className='text-center'>No review</p>
                         )}
                     </div>
                 </div>

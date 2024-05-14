@@ -5,6 +5,7 @@ import NewsLetter from "../NewsLetter/NewsLetter";
 import { useState, useEffect } from "react";
 import ReviewPage from "../ReviewPahe/ReviewPage";
 import SpecialOffer from "../SpecialOffer/SpecialOffer";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -19,7 +20,10 @@ const Home = () => {
     }, []); 
 
     return (
-        <div>
+        <div className="bg-gradient-to-r from-sky-200 to-slate-300 p-5">
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
             <Banner></Banner>
             <FeaturedRooms roomCards={roomCards}></FeaturedRooms>
             <SpecialOffer></SpecialOffer>
