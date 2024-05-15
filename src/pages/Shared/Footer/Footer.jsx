@@ -6,7 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
     return (
         <div>
-           <footer className="footer p-10 bg-gradient-to-r from-sky-100 to-stone-100 text-base-content">
+           <footer className="footer p-10 bg-gradient-to-r from-sky-100 to-slate-400 text-base-content">
                 <aside>
                 <img className= 'w-36 md:w-40 '  src={pic}></img>
                     <p>Wynn and Encore Las Vegas3131 Las Vegas Blvd.<br></br> Las Vegas, NV 89109
@@ -39,7 +39,7 @@ const Footer = () => {
                     <a className="link link-hover">Wynn Macau</a>
                 </nav>
             </footer>
-            <footer className="footer footer-center p-4  bg-gradient-to-r from-sky-100 to-stone-100 text-base-content">
+            <footer className="footer footer-center p-4  bg-gradient-to-r from-sky-100 to-slate-400 text-base-content">
                     <aside>
                         <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
                     </aside>

@@ -17,7 +17,7 @@ const Banner = () => {
 
     return (
         <div>
-            <div className="carousel w-full md:h-[600px]">
+            <div className="carousel w-full md:h-[600px] rounded-xl">
                 <div id="slide1" className="carousel-item relative w-full" >
                     <img src={img1} className="w-full "/>
 
@@ -39,8 +39,8 @@ const Banner = () => {
                     <img src={img2} className="w-full" />
                     <div className="absolute h-full  flex justify-center items-center  left-0  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                     <div className='text-white space-y-4 w-1/3'>
-                    <h2 className='text-6xl font-bold text-center'>Encore Hotel</h2>
-                    <p className='text-center'>Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
+                    <h2 className='text-6xl font-bold text-center' data-aos="fade-down-right">Encore Hotel</h2>
+                    <p className='text-center'  data-aos="fade-down-left">Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
                     <div className='text-center'>
                     <button className="btn glass font-extrabold">Book Now</button>
                     </div>
@@ -55,8 +55,8 @@ const Banner = () => {
                     <img src={img3} className="w-full" />
                     <div className="absolute h-full  flex justify-center items-center  left-0  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                     <div className='text-white space-y-4 w-1/3'>
-                    <h2 className='text-6xl font-bold text-center'>Encore Hotel</h2>
-                    <p className='text-center'>Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
+                    <h2 className='text-6xl font-bold text-center' data-aos="fade-down-right">Encore Hotel</h2>
+                    <p className='text-center'  data-aos="fade-down-left">Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
                     <div className='text-center'>
                     <button className="btn glass font-extrabold">Book Now</button>
                     </div>
@@ -71,8 +71,8 @@ const Banner = () => {
                     <img src={img4} className="w-full" />
                     <div className="absolute h-full  flex justify-center items-center  left-0  top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                     <div className='text-white space-y-4 w-1/3'>
-                    <h2 className='text-6xl font-bold text-center'>Encore Hotel</h2>
-                    <p className='text-center'>Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
+                    <h2 className='text-6xl font-bold text-center' data-aos="fade-down-right">Encore Hotel</h2>
+                    <p className='text-center'  data-aos="fade-down-left">Encore Hotel is an uber-luxe retreat for explorers and collectors of the worlds island idyll experiences. Set overlooking the exquisite and icoic Ornos Bay, Encore Hotel crucially commands the only private beach on Mykonos.</p>
                     <div className='text-center'>
                     <button className="btn glass font-extrabold">Book Now</button>
                     </div>

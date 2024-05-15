@@ -13,25 +13,57 @@ const MyBookingPage = () => {
     const [reviewText, setReviewText] = useState('');
     const [username, setUsername] = useState(''); 
     const [rating, setRating] = useState(0);
+  
+
+
 
     useEffect(() => {
         Aos.init();
     }, []);
 
+
     useEffect(() => {
         if (user) {
-            const url = `http://localhost:5000/bookings?email=${user.email}`;
-
-            axios.get(url, { withCredentials: true })
-                .then(res => {
-                    setBookings(res.data);
-                })
-                .catch(error => {
-                    console.error('Error fetching bookings:', error);
-                    // Handle error
-                });
+          fetchBookings(user.email);
         }
-    }, [user]);
+      }, [user]);
+    
+      const fetchBookings = async (email) => {
+        try {
+          const response = await fetch(`https://hotel-server-eta.vercel.app/bookings?email=${email}`, {
+            method: 'GET',
+            credentials: 'include' 
+          });
+          if (!response.ok) {
+            throw new Error('Failed to fetch bookings');
+          }
+          const data = await response.json();
+          setBookings(data);
+        } catch (error) {
+          console.error('Error fetching bookings:', error);
+        }
+      };
+      
+
+    // useEffect(() => {
+    //     if (user) {
+    //         const url = `https://hotel-server-eta.vercel.app/bookings?email=${user.email}`;
+
+    //         // axios.get(url, { withCredentials: true })
+    //         //     .then(res => {
+    //         //         setBookings(res.data);
+    //         //     })
+
+    //         fetch(url,{ credentials: "include"})
+    //         .then(res => res.json())
+    //         .then(data => setBookings(data))
+
+    //         .catch(error => {
+    //              console.error('Error fetching bookings:', error);
+    //                 // Handle error
+    //         });
+    //     }
+    // }, [user]);
 
     // cancel
     const handleCancelBooking = (id) => {
@@ -45,7 +77,7 @@ const MyBookingPage = () => {
             confirmButtonText: 'Yes, cancel it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/bookings/${id}`, {
+                fetch(`https://hotel-server-eta.vercel.app/bookings/${id}`, {
                     method: 'DELETE',
                 })
                 .then((res) => res.json())
@@ -80,7 +112,7 @@ const MyBookingPage = () => {
 
     // update Date
     const handleUpdateDate = (bookingId, newDate) => {
-        fetch(`http://localhost:5000/bookings/${bookingId}`, {
+        fetch(`https://hotel-server-eta.vercel.app/bookings/${bookingId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -128,7 +160,7 @@ const MyBookingPage = () => {
                 }
             };
 
-            const response = await fetch('http://localhost:5000/reviews', {
+            const response = await fetch('https://hotel-server-eta.vercel.app/reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

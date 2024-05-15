@@ -35,7 +35,7 @@ const DetailsPage = () => {
     useEffect(() => {
         const fetchRoomData = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/Rooms/${id}`);
+            const response = await fetch(`https://hotel-server-eta.vercel.app/Rooms/${id}`);
             if (response.ok) {
                 const data = await response.json();
                 setRoomData(data);
@@ -52,7 +52,7 @@ const DetailsPage = () => {
 
     const fetchReviews = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/reviews`);
+            const response = await fetch(`https://hotel-server-eta.vercel.app/reviews`);
             if (response.ok) {
                 const data = await response.json();
                 setReviews(data);
@@ -76,7 +76,7 @@ const DetailsPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/bookings', {
+            const response = await fetch('https://hotel-server-eta.vercel.app/bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ const DetailsPage = () => {
             setIsBooking(true);
             setShowModal(true);
             setTimeout(async () => {
-                const response = await fetch(`http://localhost:5000/Rooms/${id}`, {
+                const response = await fetch(`https://hotel-server-eta.vercel.app/Rooms/${id}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

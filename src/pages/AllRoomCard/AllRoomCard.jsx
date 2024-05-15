@@ -14,7 +14,7 @@ const AllRoomCard = () => {
 
     
     useEffect(() =>{
-        fetch('http://localhost:5000/Rooms')
+        fetch('https://hotel-server-eta.vercel.app/Rooms')
         .then(res => res.json())
         .then(data => setRoomCards(data));
     }, []);

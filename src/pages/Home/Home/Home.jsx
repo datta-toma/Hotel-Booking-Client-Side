@@ -13,7 +13,7 @@ const Home = () => {
     const [roomCards, setRoomCards] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/Rooms") // Update with your data source URL
+        fetch("https://hotel-server-eta.vercel.app/Rooms") // Update with your data source URL
             .then((res) => res.json())
             .then((data) => setRoomCards(data))
             .catch((error) => console.error("Error fetching rooms:", error));

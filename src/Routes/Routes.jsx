@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         {
           path:'/details/:id',
           element:<PrivateRouter><DetailsPage></DetailsPage></PrivateRouter>,
-          loader:({params}) => fetch(`http://localhost:5000/Rooms/${params.id}`)
+          loader:({params}) => fetch(`https://hotel-server-eta.vercel.app/Rooms/${params.id}`)
         },
         {
           path:'/about',

@@ -26,7 +26,7 @@ const RoomsCard = ({ roomCard,  }) => {
 
     const fetchTotalReviews = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/Rooms/reviews/count/${_id}`);
+            const response = await fetch(`https://hotel-server-eta.vercel.app/Rooms/reviews/count/${_id}`);
             if (response.ok) {
                 const data = await response.json();
                 setTotalReviews(data.totalReviews);
@@ -68,7 +68,7 @@ const RoomsCard = ({ roomCard,  }) => {
                 }
             };
     
-            const response = await fetch('http://localhost:5000/reviews', {
+            const response = await fetch('https://hotel-server-eta.vercel.app/reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

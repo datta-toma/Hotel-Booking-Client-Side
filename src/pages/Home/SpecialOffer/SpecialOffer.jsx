@@ -11,7 +11,7 @@ const SpecialOffer = () => {
     }, []);
     
     useEffect(() => {
-        fetch('special.json') 
+        fetch('https://hotel-server-eta.vercel.app/offers') 
             .then((res) => res.json())
             .then((data) => setSpecials(data));
     }, []); 

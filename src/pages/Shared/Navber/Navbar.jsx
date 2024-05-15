@@ -4,6 +4,7 @@ import useAuth from '../../hook/useAuth';
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { toast } from 'react-toastify';
 import "./nav.css";
+import axios from 'axios';
 
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     console.log(user)
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         logout()
           .then(() => {
             toast.success("Successfully logged out");
@@ -21,6 +22,7 @@ const Navbar = () => {
           .catch((err) => {
             toast.error(`Logout failed: ${err.message}`);
           });
+          await axios(`https://hotel-server-eta.vercel.app/logout`)
       };
 
     const navItem = <>
@@ -41,9 +43,9 @@ const Navbar = () => {
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             {navItem}
-                        </ul> v
+                        </ul> 
                         </div>
-                        <img className= 'w-28 md:w-36 '  src={logo}></img>
+                        <img className= 'w-28 lg::w-36 '  src={logo}></img>
                         <a className="btn btn-ghost md:text-4xl font-extrabold italic">ENCORE-HOTEL</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
@@ -66,7 +68,7 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <Link to="/login">
-                            <button className="btn btn-sm md:text-xl btn-ghost">Login</button>
+                            <button className="btn btn-sm font-extrabold text-black md:text-xl btn-ghost">Login</button>
                         </Link>
                     )}
                     </div>
